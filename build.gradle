@@ -1,0 +1,38 @@
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    // Apply the application plugin to add support for building a CLI application.
+    id 'application'
+}
+
+version = currentVersion
+
+repositories {
+    // Use jcenter for resolving dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+dependencies {
+    // This dependency is used by the application.
+    implementation 'com.google.guava:guava:28.2-jre'
+
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+}
+
+application {
+    // Define the main class for the application.
+    mainClassName = 'dev.coreequip.visualcompare.App'
+}
+
+jar {
+    archivesBaseName = projectName as String
+    manifest {
+        attributes('Implementation-Title': 'Breezer',
+                'Implementation-Version': archiveVersion.get(),
+                'Version': archiveVersion.get(),
+                'Main-Class': 'dev.coreequip.visualcompare.App')
+    }
+}
