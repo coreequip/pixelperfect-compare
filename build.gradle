@@ -29,6 +29,8 @@ application {
 
 jar {
     archivesBaseName = projectName as String
+    archiveVersion.set('')
+
     manifest {
         attributes('Implementation-Title': 'Breezer',
                 'Implementation-Version': archiveVersion.get(),

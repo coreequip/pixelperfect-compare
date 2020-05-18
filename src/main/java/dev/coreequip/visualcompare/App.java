@@ -58,8 +58,8 @@ public class App extends JFrame implements ActionListener, MouseListener, MouseM
         jtb.addMouseMotionListener(this);
 
         jtb.add(makeToolbarButton("clipboard", "Paste clipboard image", "paste"));
-        jtb.add(makeToolbarButton("plus-circle", "Increase transparency", "inc"));
-        jtb.add(makeToolbarButton("minus-circle", "Decrease transparency", "dec"));
+        jtb.add(makeToolbarButton("minus-circle", "Decrease opacity", "dec"));
+        jtb.add(makeToolbarButton("plus-circle", "Increase opacity", "inc"));
         jtb.add(makeToolbarButton("magic", "Remove background", "remove-bg"));
         jtb.add(makeToolbarButton("times", "Exit", "exit"));
 
@@ -152,10 +152,10 @@ public class App extends JFrame implements ActionListener, MouseListener, MouseM
                     }
                 label.setIcon(new ImageIcon(img));
                 break;
-            case "inc":
+            case "dec":
                 setOpacity(opaque > .2f ? opaque - .1f : opaque);
                 break;
-            case "dec":
+            case "inc":
                 setOpacity(opaque < 1 ? opaque + .1f : opaque);
                 break;
             case "exit":

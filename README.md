@@ -3,6 +3,10 @@ Image pixel perfect compare tool.
 
 ![Pixelperfect screenshot](gfx/screenshot.png)
 
+## Download
+
+Download the latest release [here](https://github.com/coreequip/pixelperfect-compare/releases/latest/download/pixelperfect-compare.jar).
+
 ## Running the application
 
 Run the **JAR** file with da double-click (if JAR associated with Java).
@@ -15,12 +19,12 @@ If not run it with:
 - **Paste** (Ctrl-V)  
   Paste your clipboard in the app. Make sure your clipboard content is a image.
   
-- **Plus** (Ctrl-I)  
-  Increase window transparency.  
-
 - **Minus** (Ctrl-D)  
-  Decrease window transparency.
+  Decrease window opacity.
   
+- **Plus** (Ctrl-I)  
+  Increase window opacity.  
+
 - **Magic wand** (Ctrl-B)  
   Toggle removal of image background color.
 
