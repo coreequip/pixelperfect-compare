@@ -12,7 +12,7 @@ Download the latest release [here](https://github.com/coreequip/pixelperfect-com
 Run the **JAR** file with da double-click (if JAR associated with Java).
 If not run it with:
 
-`javaw -jar pixelperfect-compare-0.1.jar`
+`javaw -jar pixelperfect-compare.jar`
 
 ## Buttonbar
 
@@ -27,6 +27,9 @@ If not run it with:
 
 - **Magic wand** (Ctrl-B)  
   Toggle removal of image background color.
+
+- **Aways on top** (Ctrl-T)  
+  Toggle the topmost window position.
 
 - **Exit** (Ctrl-Q)   
   Closes the app.

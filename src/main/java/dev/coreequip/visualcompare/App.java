@@ -17,11 +17,12 @@ import java.util.Map;
 
 public class App extends JFrame implements ActionListener, MouseListener, MouseMotionListener {
 
-    private static final String VERSION = "1.0";
     private Point relLoc;
     private final JLabel label;
+    private final JButton toggleButtonAot;
     private Image currentImage = null;
     private boolean backgroundRemoved = false;
+    private boolean alwaysOnTop = false;
 
 
     static Image getImageFromClipboard() {
@@ -61,12 +62,14 @@ public class App extends JFrame implements ActionListener, MouseListener, MouseM
         jtb.add(makeToolbarButton("minus-circle", "Decrease opacity", "dec"));
         jtb.add(makeToolbarButton("plus-circle", "Increase opacity", "inc"));
         jtb.add(makeToolbarButton("magic", "Remove background", "remove-bg"));
+        toggleButtonAot = makeToolbarButton("pushpin-off", "Toggle always on top", "toggle-aot");
+        jtb.add(toggleButtonAot);
         jtb.add(makeToolbarButton("times", "Exit", "exit"));
 
         final String cmds = "move-left|alt LEFT,move-right|alt RIGHT,move-top|alt UP,move-bottom|alt DOWN," +
                 "move-left-fast|alt shift LEFT,move-right-fast|alt shift RIGHT," +
                 "move-top-fast|alt shift UP,move-bottom-fast|alt shift DOWN," +
-                "inc|control I,dec|control D,paste|control V,exit|control Q,remove-bg|control B";
+                "inc|control I,dec|control D,paste|control V,exit|control Q,remove-bg|control B,toggle-aot|control T";
         for (String cmdTupel : cmds.split(",")) {
             final String[] split = cmdTupel.split("\\|");
             getRootPane().registerKeyboardAction(
@@ -86,7 +89,7 @@ public class App extends JFrame implements ActionListener, MouseListener, MouseM
 
         setIconImage(getIcon("icon").getImage());
 
-        setMinimumSize(new Dimension(200, 240));
+        setMinimumSize(new Dimension(200, 260));
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 0));
         pack();
@@ -184,6 +187,14 @@ public class App extends JFrame implements ActionListener, MouseListener, MouseM
                 break;
             case "move-bottom-fast":
                 moveWindowRelative(0, 20);
+                break;
+            case "toggle-aot":
+                this.alwaysOnTop ^= true;
+                this.setAlwaysOnTop(this.alwaysOnTop);
+                try {
+                    this.toggleButtonAot.setIcon(this.getIcon("pushpin-" + (this.alwaysOnTop ? "on" : "off")));
+                } catch (IOException ignored) {
+                }
                 break;
         }
     }

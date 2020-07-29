@@ -14,14 +14,6 @@ repositories {
     jcenter()
 }
 
-dependencies {
-    // This dependency is used by the application.
-    implementation 'com.google.guava:guava:28.2-jre'
-
-    // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
-}
-
 application {
     // Define the main class for the application.
     mainClassName = 'dev.coreequip.visualcompare.App'
@@ -32,7 +24,7 @@ jar {
     archiveVersion.set('')
 
     manifest {
-        attributes('Implementation-Title': 'Breezer',
+        attributes('Implementation-Title': rootProject.name,
                 'Implementation-Version': currentVersion,
                 'Version': currentVersion,
                 'Main-Class': 'dev.coreequip.visualcompare.App')
