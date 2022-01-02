@@ -39,6 +39,7 @@ public class App extends JFrame implements ActionListener, MouseListener, MouseM
 
     public static void main(String[] args) {
         try {
+            System.setProperty("sun.java2d.uiScale", "1.0");
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             new App();
         } catch (Exception ex) {
